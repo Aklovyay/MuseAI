@@ -1,6 +1,9 @@
 // API utility functions
 
-const API_BASE_URL = 'http://localhost:3001/api';
+// Use Render backend in production, localhost in development
+const API_BASE_URL = process.env.NODE_ENV === 'development' 
+  ? 'http://localhost:8080/api'
+  : 'https://museai-ce1s.onrender.com/api';
 
 export const generateContent = async (prompt, contentType, tone) => {
   try {
